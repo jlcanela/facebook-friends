@@ -1,0 +1,33 @@
+{
+  "name": "facebook-friends",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "adaro": "^1.0.4",
+    "bluebird": "^3.4.7",
+    "co": "^4.6.0",
+    "colors": "^1.1.2",
+    "express": "^4.14.1",
+    "mongodb": "^2.2.21",
+    "mongodb-bluebird": "^0.1.1"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-as-promised": "^6.0.0",
+    "chai-http": "^3.0.0",
+    "colors": "^1.1.2",
+    "mocha": "^3.2.0",
+    "selenium-webdriver": "^3.0.1"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "mocha test/unit test/integration",
+    "acceptance": "mocha test/acceptance"
+  },
+  "author": "",
+  "license": "ISC"
+}

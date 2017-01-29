@@ -1,0 +1,6 @@
+{
+  "mondodb-bluebird": {
+    "dev": "mongodb://localhost:27017/facebook-friends",
+    "test": "mongodb://localhost:27017/facebook-friends-test"
+  }
+}
