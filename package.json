@@ -9,11 +9,16 @@
   "dependencies": {
     "adaro": "^1.0.4",
     "bluebird": "^3.4.7",
+    "body-parser": "^1.16.0",
     "co": "^4.6.0",
     "colors": "^1.1.2",
+    "cookie-parser": "^1.4.3",
     "express": "^4.14.1",
+    "express-session": "^1.15.0",
     "mongodb": "^2.2.21",
-    "mongodb-bluebird": "^0.1.1"
+    "mongodb-bluebird": "^0.1.1",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",
