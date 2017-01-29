@@ -5,6 +5,8 @@ const app = express();
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 
+const User = require('../models/user');
+
 module.exports = {
   init: function init(app) {
     passport.use(new LocalStrategy(
@@ -14,16 +16,54 @@ module.exports = {
           return done(null, false, { message: 'Incorrect password'});
         }
 
-        return done(null, { id: username, username });
+        return done(null, { name: username });
       }
     ));
 
     passport.serializeUser(function(user, done) {
-      done(null, user.id);
+
+      var searchQuery = {
+        name: user.name
+      };
+
+      var updates = {
+        name: user.name,
+        token: (new Date()).getTime(),
+        refreshToken: (new Date()).getTime(),
+
+      };
+
+      var options = {
+        upsert: true
+      };
+
+      // update the user if s/he exists or add a new user
+      User.findOneAndUpdate(searchQuery, updates, options, function(err, u) {
+        console.log('serializeUser');
+        if(err) {
+          console.log(`err: ${err}`);
+          return done(err);
+        } else {
+          console.log(`user: ${u}`);
+          return done(null, user.name);
+        }
+      });
+
     });
 
-    passport.deserializeUser(function(id, done) {
-      done(null, { id, username: id});
+    passport.deserializeUser(function(name, done) {
+
+      var searchQuery = {
+        name: name
+      };
+
+      User.findOne(searchQuery, function(err, user)  {
+        if (err) {
+          return done(err);
+        } else {
+          return done(null, user);
+        }
+      });
     });
 
     app.use(require('cookie-parser')());
