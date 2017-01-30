@@ -5,7 +5,6 @@ import { exampleReducer } from './example';
 const objects = (state = [{id:-1, name:'name', description:'desc'}], action) => {
   switch (action.type) {
     case types.ADD:
-    console.log(action.payload);
       return state.concat([action.payload]);
     default:
       return state;
