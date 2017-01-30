@@ -15,14 +15,20 @@ const Header = ({
   </thead>
 );
 
+const SetAdmin = ({isAdmin, setAdmin}) => {
+  if (isAdmin) {
+    return <span>Admin</span>
+  }
+  return <a onClick={setAdmin } >Set Admin</a>
+}
+
 const Body = ({ objects, setAdmin }) =>
   <tbody>
   {
     objects.map( (object) =>
     <tr key={object.name}>
       <td>{object.name}</td>
-      <td>&nbsp;</td>
-      <td><a onClick={ () => setAdmin(object.name) }>Set Admin</a></td>
+      <td><SetAdmin isAdmin={object.isAdmin} setAdmin={() => setAdmin(object.name)}/></td>
     </tr>
   )}
   </tbody>
@@ -32,15 +38,18 @@ const App = ({ objects, loadData, setAdmin }) =>
     <Col md={6}>
     <Button onClick={ () => loadData }>Refresh</Button>
       <Table responsive>
-      <Header columns={['Name', 'Admin', 'Tool']} />
+      <Header columns={['Name', 'Admin']} />
       <Body objects={ objects } setAdmin={ setAdmin } />
       </Table>
     </Col>
   </Layout>
 
 const mapStateToProps = (state) => {
+  const adminName = state.example.adminName.name;
+  const users = state.example.data.map(user => Object.assign({}, user, {isAdmin: user.name === adminName}));
+  console.log(users);
   return {
-    objects: state.example.data
+    objects: users
   }
 }
 
