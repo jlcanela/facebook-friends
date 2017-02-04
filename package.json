@@ -29,6 +29,10 @@
         "chai-as-promised": "^6.0.0",
         "chai-http": "^3.0.0",
         "colors": "^1.1.2",
+        "eslint": "^3.15.0",
+        "eslint-config-standard": "^6.2.1",
+        "eslint-plugin-promise": "^3.4.0",
+        "eslint-plugin-standard": "^2.0.1",
         "mocha": "^3.2.0",
         "npm-run-all": "^4.0.1",
         "selenium-webdriver": "^3.0.1"
@@ -36,6 +40,7 @@
     "scripts": {
         "start": "node src/index.js",
         "test": "mocha --compilers js:babel-core/register --require babel-polyfill test/unit test/integration",
+        "eslint": "eslint --cache --fix ./src",
         "acceptance": "mocha test/acceptance"
     },
     "author": "",
