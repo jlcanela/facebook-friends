@@ -36,14 +36,17 @@
     "mocha": "^3.2.0",
     "npm-run-all": "^4.0.1",
     "selenium-webdriver": "^3.0.1",
+    "stylefmt": "^5.1.1",
     "stylelint": "^7.8.0",
     "stylelint-config-standard": "^16.0.0"
   },
   "scripts": {
     "start": "node src/index.js",
-    "test": "mocha --compilers js:babel-core/register --require babel-polyfill test/unit test/integration",
-    "eslint": "eslint --cache --fix ./src",
-    "stylelint": "stylelint '**/*.css' --style css",
+    "test": "npm-run-all --parallel lint:** mocha",
+    "mocha": "mocha --compilers js:babel-core/register --require babel-polyfill test/unit test/integration",
+    "lint:js": "eslint --cache --fix ./src",
+    "lint:css": "stylelint '**/*.css' --style css",
+    "lint:css:fix": "stylefmt --recursive ./public/**/style.css",
     "acceptance": "mocha test/acceptance"
   },
   "author": "",
