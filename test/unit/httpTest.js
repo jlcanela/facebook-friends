@@ -1,26 +1,25 @@
-'use strict';
+'use strict'
 
-let chai = require('chai');
-let chaiHttp = require('chai-http');
-let server = require('../../src/server');
-let should = chai.should();
+let chai = require('chai')
+let should = require('chai').should()
+let chaiHttp = require('chai-http')
+let server = require('../../src/server')
 
-chai.use(chaiHttp);
+chai.use(chaiHttp)
 
 describe('Server', () => {
   beforeEach((done) => {
-    done();
-  });
+    done()
+  })
   describe('GET /', () => {
     it('it should GET home page', (done) => {
       chai.request(server)
         .get('/')
         .end((err, res) => {
-          res.should.have.status(200);
-          //  res.body.should.be.a('array');
-          //res.body.length.should.be.eql(0);
-          done();
-        });
-    });
-  });
-});
+          should.not.exist(err)
+          res.should.have.status(200)
+          done()
+        })
+    })
+  })
+})
