@@ -45,7 +45,7 @@
     "stylelint-config-standard": "^16.0.0"
   },
   "scripts": {
-    "start": "node src/index.js",
+    "start": "node src/index.js & opn http://localhost:3001", 
     "pretest": "npm run lint",
     "prepush": "npm run lint",
     "test": "npm run mocha",
