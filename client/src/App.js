@@ -1,19 +1,20 @@
-import React from 'react';
-import Layout from './Layout';
-import { Col, Table, Button } from 'react-bootstrap';
-import { connect } from 'react-redux';
-import { fetchData, setAdmin } from './actions';
-import './App.css';
-
+/* eslint-disable no-unused-vars */
+import React from 'react'
+import Layout from './Layout'
+import { Col, Table, Button } from 'react-bootstrap'
+import { connect } from 'react-redux'
+import { fetchData, setAdmin } from './actions'
+import './App.css'
+/* eslint-enable no-unused-vars */
 const Header = ({
   columns
 }) => (
   <thead>
   <tr>
-  { columns.map((name) => <th key={name}>{name}</th> )}
+  { columns.map((name) => <th key={name}>{name}</th>)}
   </tr>
   </thead>
-);
+)
 
 const SetAdmin = ({isAdmin, setAdmin}) => {
   if (isAdmin) {
@@ -25,7 +26,7 @@ const SetAdmin = ({isAdmin, setAdmin}) => {
 const Body = ({ objects, setAdmin }) =>
   <tbody>
   {
-    objects.map( (object) =>
+    objects.map((object) =>
     <tr key={object.name}>
       <td>{object.name}</td>
       <td><SetAdmin isAdmin={object.isAdmin} setAdmin={() => setAdmin(object.name)}/></td>
@@ -45,9 +46,9 @@ const App = ({ objects, loadData, setAdmin }) =>
   </Layout>
 
 const mapStateToProps = (state) => {
-  const adminName = state.example.adminName.name;
-  const users = state.example.data.map(user => Object.assign({}, user, {isAdmin: user.name === adminName}));
-  console.log(users);
+  const adminName = state.example.adminName.name
+  const users = state.example.data.map(user => Object.assign({}, user, {isAdmin: user.name === adminName}))
+  console.log(users)
   return {
     objects: users
   }
@@ -69,4 +70,4 @@ const AppContainer = connect(
   mapDispatchToProps
 )(App)
 
-export default AppContainer;
+export default AppContainer

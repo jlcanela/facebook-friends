@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import { Col, Nav, Navbar } from 'react-bootstrap';
+import React, { Component } from 'react'
+import { Col, Nav, Navbar } from 'react-bootstrap'
 
 class Layout extends Component {
-  render() {
+  render () {
     return (
   <Col md={12}>
       <Navbar>
@@ -20,8 +20,8 @@ class Layout extends Component {
 
       </Col>
 
-    );
+    )
   }
 }
 
-export default Layout;
+export default Layout

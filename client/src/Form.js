@@ -1,7 +1,7 @@
-import React from 'react';
-import { Button, FormGroup, FormControl, ControlLabel } from 'react-bootstrap';
+import React from 'react'
+import { Button, FormGroup, FormControl, ControlLabel } from 'react-bootstrap'
 import { addObject, updateName, updateDescription } from './store'
-import { connect } from 'react-redux';
+import { connect } from 'react-redux'
 
 const Form = ({
   name,
@@ -30,7 +30,7 @@ const Form = ({
       />
       <FormControl.Feedback />
       <Button onClick={ () => {
-        addObject(name, description);
+        addObject(name, description)
       }
        }>Add</Button>
     </FormGroup>
@@ -62,4 +62,4 @@ const FormContainer = connect(
   mapDispatchToProps
 )(Form)
 
-export default FormContainer;
+export default FormContainer
