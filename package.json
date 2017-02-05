@@ -6,6 +6,9 @@
   "directories": {
     "test": "test"
   },
+  "config": {
+    "port":3000
+  },
   "dependencies": {
     "adaro": "^1.0.4",
     "bluebird": "^3.4.7",
@@ -45,7 +48,7 @@
     "stylelint-config-standard": "^16.0.0"
   },
   "scripts": {
-    "start": "node src/index.js & opn http://localhost:3001", 
+    "start": "port=$npm_package_config_port node src/index.js & opn http://localhost:$npm_package_config_port", 
     "pretest": "npm run lint",
     "prepush": "npm run lint",
     "test": "npm run mocha",
