@@ -58,6 +58,7 @@
     "mocha": "mocha --compilers js:babel-core/register --require babel-polyfill test/unit test/integration",
     "lint": "npm-run-all lint:**",
     "lint:js": "eslint --cache --fix ./src",
+    "lint:js-client": "eslint --cache --fix ./client/src",
     "lint:js-test": "eslint --cache --fix ./test",
     "lint:css": "stylelint \"**/*.css\" --style css",
     "lint:css:fix": "stylefmt --recursive \"./public/**/style.css\"",
