@@ -7,7 +7,7 @@
     "test": "test"
   },
   "config": {
-    "port":3000
+    "port": 3000
   },
   "dependencies": {
     "adaro": "^1.0.4",
@@ -32,6 +32,7 @@
     "chai-as-promised": "^6.0.0",
     "chai-http": "^3.0.0",
     "colors": "^1.1.2",
+    "cross-var": "^1.0.2",
     "dirty-chai": "^1.2.2",
     "eslint": "^3.15.0",
     "eslint-config-standard": "^6.2.1",
@@ -48,7 +49,7 @@
     "stylelint-config-standard": "^16.0.0"
   },
   "scripts": {
-    "start": "port=$npm_package_config_port node src/index.js & opn http://localhost:$npm_package_config_port", 
+    "start": "cross-var \"port=$npm_package_config_port node src/index.js & opn http://localhost:$npm_package_config_port\"",
     "pretest": "npm run lint",
     "prepush": "npm run lint",
     "test": "npm run mocha",
