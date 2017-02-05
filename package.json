@@ -34,6 +34,7 @@
     "eslint-config-standard": "^6.2.1",
     "eslint-plugin-promise": "^3.4.0",
     "eslint-plugin-standard": "^2.0.1",
+    "husky": "^0.13.1",
     "mocha": "^3.2.0",
     "npm-run-all": "^4.0.1",
     "nyc": "^10.1.2",
@@ -46,6 +47,7 @@
   "scripts": {
     "start": "node src/index.js",
     "pretest": "npm run lint",
+    "precommit": "npm run lint",
     "test": "npm run mocha",
     "test:debug": "npm run mocha -- --debug-brk",
     "watch:test": "npm run mocha -- --watch",
