@@ -9,6 +9,10 @@ yarn install
 yarn test
 ```
 
+## Build
+
+Use Jenkinsfile with Jenkins2
+
 ## Requirements
 
 A mongo db database.
